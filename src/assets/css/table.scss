@@ -1,0 +1,10 @@
+table{
+ tbody{
+  tr:nth-child(odd){
+   background-color: #ebebeb;
+   &:hover{
+    background-color: rgb(217, 251, 217);
+   }
+  }
+ }
+}

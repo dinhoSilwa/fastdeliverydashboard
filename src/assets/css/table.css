@@ -1,0 +1,6 @@
+table tbody tr:nth-child(odd) {
+  background-color: #ebebeb;
+}
+table tbody tr:nth-child(odd):hover {
+  background-color: rgb(217, 251, 217);
+}/*# sourceMappingURL=table.css.map */
