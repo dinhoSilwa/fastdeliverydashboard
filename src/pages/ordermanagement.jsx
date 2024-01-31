@@ -20,7 +20,7 @@ export const Ordermanagement = () => {
     <div className=" flex flex-col w-[65%] mt-8">
 
       
-      <section className="flex justify-aroundb gap-1 w-[96%] mb-6">
+      <section className="flex justify-aroundb gap-1 w-[96%] mb-6 ">
         <ReportBox
           iconBox={<PedidosRecebidos/>}
           iconBackground={"bg-[#FFE193]"}

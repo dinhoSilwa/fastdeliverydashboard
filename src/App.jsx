@@ -1,34 +1,23 @@
 import { useState } from "react";
 import { NavBarLateral } from "./components/layouts/navbarlateral";
-import Forms from "./components/layouts/orderForms";
-import OrderTable from "./components/layouts/orderTable";
 import Navsuper from "./components/layouts/navbarsupe";
-import { Ordermanagement } from "./pages/ordermanagement";
-import { TableManagement } from "./components/tableManagement/index";
-import {UserOrderDetails} from './components/userOrderDetails/index'
-// import {OrderTable} from './components/layouts/orderTable';
+import {Dashboarddelivery} from './pages/home/index';
+import {NovoItem} from './pages/formsregister/index';
+import {Registeredorders} from './pages/registeredorder/index';
+import { BrowserRouter, Routes , Route } from "react-router-dom";
+
 
 import "./App.css";
 
 function App() {
   return (
-    <main className=" flex bg-zinc-200">
-      <NavBarLateral className={"flex"} />
-
-      <section className="flex flex-col w-full justify-start items-center border shadow-lg">
-        <Navsuper />
-        {/* <Forms /> */}
-
-        <div className=" flex w-[96%]">
-          <Ordermanagement />
-          <UserOrderDetails />
-        </div>
-
-        {/* <div className='containerTable px-4 bg-white rounded-lg py-6 w-[95%] shadow-2xl '>
-    <OrderTable />
-    </div> */}
-      </section>
-    </main>
+   <BrowserRouter>
+    <Routes>
+      <Route path="/dashboarddelivery" element={<Dashboarddelivery />}/>
+      <Route path="/dashboarddelivery/novos-items" element={<NovoItem />}/>
+      <Route path="/dashboarddelivery/items-cadastrados" element={<Registeredorders />}/>
+    </Routes>
+   </BrowserRouter>
   );
 }
 

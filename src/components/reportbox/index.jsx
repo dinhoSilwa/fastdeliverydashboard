@@ -9,7 +9,7 @@ export const ReportBox = ({
   return (
     <div
       className="border bg-white w-[190px] px-2 py-2   
-  rounded-xl shadow-md hover:border-2 hover:border-green-600  flex flex-col cursor-pointer" 
+  rounded-xl shadow-md  flex flex-col cursor-pointer hover:bg-green-100" 
     >
       <header className="flex justify-between items-center p-2">
         <i
@@ -43,7 +43,7 @@ export const SubReportBox = ({
   return (
     <div
       className={` w-[${width}] p-3
-    rounded-xl flex flex-col shadow-md hover:border-2 hover:border-green-600 ${background}`}
+    rounded-xl flex flex-col shadow-md ${background}`}
     >
       <header className="flex justify-between ">
     
@@ -52,7 +52,7 @@ export const SubReportBox = ({
       </header>
       <div className={`flex flex-col borde text-${fontColor}`}>
         <p className="text-[16px]">{textTitleBox}</p>
-        <strong className="text-[16px] font-bold">
+        <strong className="text-[16px] font-bold ">
           {textValueBox}
         </strong>
       </div>

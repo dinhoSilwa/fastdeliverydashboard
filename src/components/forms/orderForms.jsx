@@ -1,3 +1,10 @@
+//importar os modulos de formúlários
+import { useForm } from 'react-hook-form'
+import { z } from 'zod';
+
+
+
+import HeaderSection from '../headerSection/index';
 import {
   UploadImg,
   FormRegisterInput,
@@ -8,23 +15,46 @@ import {
 
 import { PlusSquare, Trash2, ConciergeBell, ChevronRight , MoreVertical } from "lucide-react";
 
+// const createOrderSchema = z.object({
+//   orderImg : z.string().nonempty({message : "O pedido Precisa de uma Imagem"}),
+//   orderName : z.string().nonempty({message : "O nome do Produto é Obtigatório"}),
+//   orderDescription : z.string().nonempty({message: "Adcione uma DEscrição ao Produto"}).min(8, {message:"Adiciona mais Detalhes a Descrição"}),
+//   orderAddictional : z.string().nonempty({message : "Escolha o que pode ser adicionado"}),
+//   orderStatus: z.string(),
+//   orderDelivery : z.boolean(),
+//   orderPrice: z.string().nonempty({message : "O Preço é Obrigátorio"}),
+//   orderSku: z.string().nonempty({message : "Adicione o codigo do Produto"}),
+//   orderTime: z.boolean
+// })
+
+// console.log(createOrderSchema)
+
+
+
 export const Forms = () => {
-  
+
+  const {register, handleSubmit} = useForm();
+
+  function onSubmit(data){
+    console.log(JSON.stringify(data , null, 2))
+  }
+
   return (
     <>
-      <div className="formsContainer p-6 bg-white rounded-lg shadow-lg w-[90%] flex flex-col gap-6">
-        <header className=" h-10 flex justify-between items-center">
-        <div className="flex items-center">
-        <ConciergeBell color={"orange"}  size={40} className={"m-4"} /> <strong>Adicionar</strong><ChevronRight /> 
-        <p className="text-zinc-500 font-semibold">{categoryDados[0]}</p>
-        </div>
+  
+      <div className="formsContainer p-6 bg-white rounded-lg shadow-lg w-[90%]  flex-col gap-6">
+      <HeaderSection sectionTitle={"Cadastrar Novos Items"} 
+      iconsSectionName={<ConciergeBell color={"orange"} />}
+      sectionWays={"Pizzas"}
+      />
 
-        <nav>
-          <MoreVertical />
-        </nav>
-        </header>
-        <form className="flex text-black ">
-          <div
+ 
+        <form className="flex text-black"
+        onSubmit={handleSubmit(onSubmit)}
+     
+        >
+        
+          {/* <div
             id="primaryFormsContainer"
             className=" w-[22%]  flex flex-col gap-8 items-center justify-center"
           >
@@ -40,7 +70,7 @@ export const Forms = () => {
                 className="border-zinc-500 border-2 text-zinc-800"
               />
             </div>
-          </div>
+          </div> */}
 
           <div
             id="secondFormsContainer"
@@ -53,6 +83,8 @@ export const Forms = () => {
               id="orderItemName"
               width={"[90%]"}
               height={"[10%]"}
+             register={register}
+        
             />
 
             <FormRegisterInput
@@ -62,6 +94,7 @@ export const Forms = () => {
               id="orderItemDescription"
               width={"[90%]"}
               height={"20"}
+              register={register}
             />
 
             <div className=" w-[90%] h-[30%] flex-1 flex gap-4 justify-between">
@@ -73,19 +106,20 @@ export const Forms = () => {
                 <FormRegisterInputSecond
                   inputType="checkbox"
                   label={"Azeitonas"}
-                  color={200}
+                 
                   padding={0}
                   paddingX={2}
                   width={8}
                   height={8}
                   roundedNivel={"lg"}
                   htmlFor={"Azeitonas"}
+                  register={register}
                 />
 
                 <FormRegisterInputSecond
                   inputType="checkbox"
                   label={"Milho"}
-                  color={200}
+                 
                   padding={0}
                   paddingX={2}
                   width={8}
@@ -97,7 +131,7 @@ export const Forms = () => {
                 <FormRegisterInputSecond
                   inputType="checkbox"
                   label={"Cebola"}
-                  color={200}
+                 
                   padding={0}
                   paddingX={2}
                   width={8}
@@ -109,13 +143,14 @@ export const Forms = () => {
                 <FormRegisterInputSecond
                   inputType="checkbox"
                   label={"Peperone"}
-                  color={200}
+                 
                   padding={0}
                   paddingX={2}
                   width={8}
                   height={8}
                   roundedNivel={"lg"}
                   htmlFor={"Peperone"}
+                  
                 />
               </fieldset>
 
@@ -156,15 +191,18 @@ export const Forms = () => {
           >
             <div className="thirdFormsContainerDiv flex gap-2">
               <FormRegisterInput
+              id={"orderItemPrice"}
                 label={"Preço"}
                 type={"text"}
                 placeholder={"Digite o Preço"}
+                register={register}
               />
 
               <FormRegisterInput
+                id={"orderItemSku"}
                 label={"SKU"}
                 type={"text"}
-                placeholder={"#76"}
+                register={register}
               />
             </div>
 
